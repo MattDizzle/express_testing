@@ -60,14 +60,14 @@ app.get('/generate', (req, res) => {
 
   if(Number.isNaN(num)) {
     return res
-     .status(400)
-     .send('Invalid request');
+      .status(400)
+      .send('Invalid request');
   }
 
   //generate array [1..n]
   const initial =  Array(num)
-            .fill(1)
-            .map((_, i) => i + 1);
+    .fill(1)
+    .map((_, i) => i + 1);
 
   // shuffle the array
   initial.forEach((e, i) => {
@@ -104,7 +104,7 @@ app.get('/midpoint', (req, res) => {
   const by = Math.cos(rlat2) * Math.sin(rlon2 - rlon1);
 
   const midLat = Math.atan2(Math.sin(rlat1) + Math.sin(rlat2), 
-               Math.sqrt( (Math.cos(rlat1) + bx) * (Math.cos(rlat1) + bx) + by * by ) );
+    Math.sqrt( (Math.cos(rlat1) + bx) * (Math.cos(rlat1) + bx) + by * by ) );
   const midLon = rlon1 + Math.atan2(by, Math.cos(rlat1) + bx);
 
   res.json( {
@@ -136,22 +136,22 @@ app.get('/frequency', (req, res) => {
       return acc;
     }, {});
 
-    const unique = Object.keys(counts).length;
-    const average = s.length / unique;
-    let highest = '';
-    let highestVal = 0;
+  const unique = Object.keys(counts).length;
+  const average = s.length / unique;
+  let highest = '';
+  let highestVal = 0;
 
-    Object.keys(counts).forEach(k => {
-      if(counts[k] > highestVal) {
-        highestVal = counts[k];
-        highest = k;
-      }
-    });
+  Object.keys(counts).forEach(k => {
+    if(counts[k] > highestVal) {
+      highestVal = counts[k];
+      highest = k;
+    }
+  });
 
-    counts.count = unique;
-    counts.average = average;
-    counts.highest = highest;
-    res.json(counts);
+  counts.count = unique;
+  counts.average = average;
+  counts.highest = highest;
+  res.json(counts);
 });
 
 
