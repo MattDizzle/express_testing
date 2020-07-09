@@ -8,7 +8,12 @@
     "start": "node server",
     "dev": "nodemon server"
   },
-  "keywords": ["Express", "SuperTest", "Mocha", "Chai"],
+  "keywords": [
+    "Express",
+    "SuperTest",
+    "Mocha",
+    "Chai"
+  ],
   "author": "Vincent Ramdhanie",
   "license": "ISC",
   "dependencies": {
